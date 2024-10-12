@@ -1,0 +1,39 @@
+{
+  "name": "expense-tracker",
+  "version": "1.0.0",
+  "description": "\u0016A backend system for recording one's expenses.",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TaohidHossain/expense-tracker.git"
+  },
+  "keywords": [
+    "expressjs",
+    "mongodb",
+    "jsonwebtoken"
+  ],
+  "author": "MD. Taohid Alam",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TaohidHossain/expense-tracker/issues"
+  },
+  "homepage": "https://github.com/TaohidHossain/expense-tracker#readme",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "http-status-code": "^2.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.7.1",
+    "validator": "^13.12.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.7"
+  }
+}
