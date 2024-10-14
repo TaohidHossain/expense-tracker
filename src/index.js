@@ -1,6 +1,7 @@
 const express = require('express')
 const { connectDB } = require('./Config')
 const { PORT } = require('./Config/serverConfig')
+const { globalErrorHandler } = require('./Utils')
 // Setup express app
 const app = express()
 app.use(express.json())
@@ -27,3 +28,4 @@ app.get('/', (req, res) => {
         'status': 'success'
     })
 })
+app.use(globalErrorHandler)
