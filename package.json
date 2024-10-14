@@ -2,12 +2,13 @@
   "name": "expense-tracker",
   "version": "1.0.0",
   "description": "\u0016A backend system for recording one's expenses.",
-  "main": "index.js",
+  "main": "src/index.js",
   "directories": {
     "test": "test"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "prod": "node src/",
+    "dev": "nodemon"
   },
   "repository": {
     "type": "git",
