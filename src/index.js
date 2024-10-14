@@ -9,11 +9,17 @@ app.use(express.urlencoded({extended: true}))
 // API routes
 
 // Connect DB and run the app
-app.listen(PORT, async ()=>{
-    await connectDB()
-    console.log("Database connected successfully")
-    console.log(`App is listening at port ${PORT}`)
-})
+connectDB()
+    .then(conn =>{
+        console.log("Database connected successfully.")
+        const server = app.listen(PORT, () => {
+            console.log(`App is listening at port ${PORT}`)
+        })
+    })
+    .catch(error => {
+        console.log(error)
+        console.log(error.errorResponse.errmsg)
+    })
 
 
 app.get('/', (req, res) => {

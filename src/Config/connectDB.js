@@ -9,11 +9,14 @@ const cluster = process.env.DB_CLUSTER
 
 const DB_URL = host + "://" + username + ':' + password + "@" + cluster + '/' + collection + "?retryWrites=true&w=majority&appName=Cluster0"
 
-async function connectDB(){
-    try {
-        await mongoose.connect(DB_URL)
-    } catch (error) {
-        console.log(error)
-    }
+function connectDB(){
+    promise = new Promise(async (resolve, reject) => {
+        try {
+            resolve(await mongoose.connect(DB_URL))
+        } catch (error) {
+            reject(error)
+        }
+    })
+    return promise
 }
 module.exports = connectDB
