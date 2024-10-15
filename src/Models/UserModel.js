@@ -1,6 +1,7 @@
 const mongoos = require('mongoose')
 const validator = require('validator')
 const bcrypt = require('bcrypt')
+const { asyncErrorHandler } = require('../Utils')
 const userSchema = new mongoos.Schema(
     {
         name: {

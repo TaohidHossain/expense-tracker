@@ -1,4 +1,5 @@
-module.exports = function(error, req, res, error){
+module.exports = function(error, req, res, next){
+    console.log(error)
     error.status = error.status || 'error'
     error.statusCode = error.statusCode || 500
     return res.status(error.statusCode).json({

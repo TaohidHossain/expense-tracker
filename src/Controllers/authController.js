@@ -5,7 +5,7 @@ const { serverConfig } = require('../Config')
 
 // helper function for siging jwt token using user id
 const signToken = function(id){
-    return jwt.sign(id, serverConfig.SECRET_STR, { expiresIn: parseInt(serverConfig.LOGIN_EXPIRES / 1000)})
+    return jwt.sign({id}, serverConfig.SECRET_STR, { expiresIn: parseInt(serverConfig.LOGIN_EXPIRES / 1000)})
 }
 
 const signup = asyncErrorHandler(async (req, res, next) => {
@@ -18,12 +18,13 @@ const signup = asyncErrorHandler(async (req, res, next) => {
 
 const login = asyncErrorHandler( async (req, res, next) => {
     // Step 1.0: find user with given email
-    const { email, password } = req.body
+    let { email, password } = req.body
+    password = String(password)
     if(!email || !password){
         const error = new CustomError('Please provide both email and password', 400)
         next(error)
     }
-    const user = await User.findOne({email}).select('password')
+    const user = await User.findOne({email}).select('+password')
     if(!user || !await user.comparePasswordInDB(password)){
         const error = new CustomError("Incorrect email or password", 400)
         next(error)

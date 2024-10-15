@@ -5,3 +5,5 @@ class CustomError extends Error {
         this.operational = true
     }
 }
+
+module.exports = CustomError

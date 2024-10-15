@@ -12,15 +12,14 @@ const expenseSchema = new mongoose.Schema(
             required: [true, "Expense amount is required"]
         },
         userId: {
-            type: String,   
+            type: String, 
+            required: [true, "User id is required"]
         }
     },
     {
         timestamps: true
     }
 )
-// TODO: set default userID from JWT token
 
 const Expense = mongoose.model('expense', expenseSchema)
-
 module.exports = Expense
