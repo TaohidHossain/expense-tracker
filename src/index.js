@@ -23,8 +23,7 @@ connectDB()
         console.log(error.errorResponse.errmsg)
     })
 
-app.use('/api/v1/', v1Router.authRouter)
-app.use('/api/v1/expenses', v1Router.expenseRouter)
+app.use('/api', v1Router)
 
 app.get('/', (req, res) => {
     res.status(200).json({
